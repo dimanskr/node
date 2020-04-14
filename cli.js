@@ -4,7 +4,7 @@ const minimist = require('minimist');
 
 // console.log(process.env); // переменный
 
-// const readline = require('readline');
+const readline = require('readline');
 
 // const rl = readline.createInterface({
 //     input: process.stdin,
@@ -28,7 +28,7 @@ const fs = require('fs'); //библиотека чтения из файла
 //         });
 //     }
 // })
-
+// синхронное чтение из файла, но его лучше не использовать!!!
 const exists = fs.existsSync('./package.json');
 if(exists) {
     const data = fs.readFileSync('./package.json');
