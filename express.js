@@ -55,14 +55,14 @@ app.get('/', (req, res) => {
   });
 });
 
-app.post('/', (req, res) => {
-  if(req.body.source === 'ria') {
-    request('ria.ru', (...html) => {
-      $ = cheerio(html)
+// app.post('/', (req, res) => {
+//   if(req.body.source === 'ria') {
+//     request('ria.ru', (..) => {
+//       $ = cheerio(html)
 
-      res.render('')
-    })
-  }
-})
+//       res.render('')
+//     })
+//   }
+// })
 
 app.listen(8888);

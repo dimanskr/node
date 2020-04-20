@@ -1,0 +1,13 @@
+<div>
+    <h1>{{title}}</h1>
+
+    {{#if error}}
+        <h2>Ошибка {{error}}</h2>
+    {{/if}}
+
+    <ul>
+        {{#each features}}
+            <li>{{this.name}} = {{this.value}}</li>
+        {{/each}}
+    </ul>
+</div>
