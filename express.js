@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const consolidate = require('consolidate');
 
+const Task = require('./models/task');
+
 app.use(bodyParser.json());
 
 app.engine('hbs', consolidate.handlebars);
@@ -19,6 +21,16 @@ app.use((req, res, next) => {
 app.get('/users', (req, res) => {
   res.send('users');
 });
+
+app.get('/', async (req, res) => {
+  const tasks = await Task.getAll();
+  res.render('tasks', tasks);
+  // то же самое ниже
+  // Task.getAll().then((tasks) => {
+  //   res.render('tasks', tasks);
+  // })
+
+})
 
 app.get('/user/:id', (req, res, next) => {
   console.log(':id');
@@ -38,8 +50,7 @@ app.get('/user/:firstName/:lastName/:age', (req, res) => {
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Hello, world',
-    features: [
-      {
+    features: [{
         name: 'Прочность',
         value: 10,
       },
