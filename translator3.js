@@ -15,7 +15,7 @@ const getTranslation = word => {
     return rp(transApiUrl)
 }
 
-views.greeting()
+views.greeting()    
 views.enterWord()
 
 rl.on('line', (input) => {

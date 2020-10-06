@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Новостная страница с ID - <%= newsId %></h1>
+    <p><b>Title - </b><%= obj.title %></p>
+    <p><b>ID - </b><%= obj.id %></p>
+    <p>Вывод данных из файла</p>
+    <p> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem et architecto quibusdam reprehenderit officia error, totam, blanditiis praesentium fuga aliquid eaque, similique neque. Consequatur, iure? Incidunt omnis repellendus natus cum!</p>
+    <ul>
+        <% obj.paragraphs.forEach(function(item) { %>
+            <li><%= item %></li>
+        <% }); %>
+    </ul>
+
+</body>
+</html>

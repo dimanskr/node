@@ -4,13 +4,13 @@ const app = express();
 const bodyParser = require('body-parser');
 const consolidate = require('consolidate');
 
-const Task = require('./models/task');
+const Task = require('./models_/task');
 
 app.use(bodyParser.json());
 
 app.engine('hbs', consolidate.handlebars);
 app.set('view engine', 'hbs');
-app.set('views', `${__dirname}/views`);
+app.set('views', `${__dirname}/views_`);
 
 app.use((req, res, next) => {
   req.blablabla = '111';

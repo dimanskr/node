@@ -44,7 +44,7 @@ const cheerio = require('cheerio');
 // const phantomjs = require('phantomjs');
 // const zombie = require('zombie');
 
-request('https://www.banki.ru/products/currency/cash/sankt-peterburg/', (err, req, html) => {
+request('https://www.banki.ru/products/currency/usd/', (err, req, html) => {
     if (!err && req.statusCode === 200) {
         const $ = cheerio.load(html);
         console.log('Курс доллара', $('.currency-table__large-text').eq(1).text());

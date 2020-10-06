@@ -17,6 +17,7 @@
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
     "cors": "^2.8.5",
+    "ejs": "^3.1.5",
     "express": "^4.17.1",
     "handlebars": "^4.7.6",
     "jsonwebtoken": "^8.5.1",
@@ -31,6 +32,7 @@
     "request": "^2.88.2",
     "request-promise": "^4.2.5",
     "restify": "^8.5.1",
+    "socket.io": "^2.3.0",
     "terminal-kit": "^1.35.2"
   },
   "devDependencies": {

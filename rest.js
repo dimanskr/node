@@ -5,6 +5,11 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 
 // mongoose.connect('mongodb://192.168.99.100:32773/stream', { useNewUrlParser: true });
+mongoose.connect(`mongodb://127.0.0.1:27017/myapp`, (err) => {
+    if (err) {
+        console.log(err);
+    }
+});
 
 // client - domain.com
 // server(api) - api.domain.com
@@ -21,33 +26,33 @@ const User = require('./models/user');
 
 app.use(express.static(path.resolve(__dirname, 'public')));
 
-const verifyToken = (req, res, next) => {
-  if(req.headers.authorization) {
-    const [type, token] = req.headers.authorization.split(' ');
-    jwt.verify(token, 'secret', (err, decoded) => {
-      if(err) {
-        res.status(401).json({ message: 'Wrong token' });
-      }
-      req.user = decoded;
-      next();
-    });
-  } else {
-    res.status(401).json({ message: 'No token present' });
-  }
-}
+// const verifyToken = (req, res, next) => {
+//   if(req.headers.authorization) {
+//     const [type, token] = req.headers.authorization.split(' ');
+//     jwt.verify(token, 'secret', (err, decoded) => {
+//       if(err) {
+//         res.status(401).json({ message: 'Wrong token' });
+//       }
+//       req.user = decoded;
+//       next();
+//     });
+//   } else {
+//     res.status(401).json({ message: 'No token present' });
+//   }
+// }
 
-app.post('/auth', (req, res) => {
-  const { username, password } = req.body;
+// app.post('/auth', (req, res) => {
+//   const { username, password } = req.body;
 
-  if(username === 'admin' && password === 'admin') {
-    const token = jwt.sign({ name: 'Dmitry', surname: 'Bondarchuk' }, 'secret');
-    res.json({ token });
-  } else {
-    res.status(401).json({ message: 'Wrong credentials' });
-  }
-});
+//   if(username === 'admin' && password === 'admin') {
+//     const token = jwt.sign({ name: 'Dmitry', surname: 'Bondarchuk' }, 'secret');
+//     res.json({ token });
+//   } else {
+//     res.status(401).json({ message: 'Wrong credentials' });
+//   }
+// });
 
-app.all('/users*', verifyToken);
+// app.all('/users*', verifyToken);
 
 app.get('/users', async (req, res) => {
   console.log(req.user);
