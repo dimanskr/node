@@ -36,6 +36,6 @@
     "terminal-kit": "^1.35.2"
   },
   "devDependencies": {
-    "pm2": "^4.3.1"
+    "pm2": "^5.2.0"
   }
 }
