@@ -33,7 +33,7 @@
     "request-promise": "^4.2.5",
     "restify": "^8.5.1",
     "socket.io": "^2.3.0",
-    "terminal-kit": "^1.35.2"
+    "terminal-kit": "^3.0.0"
   },
   "devDependencies": {
     "pm2": "^4.3.1"
